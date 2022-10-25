@@ -1,0 +1,28 @@
+{
+  "name": "demonodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cookie": "^0.5.0",
+    "google-auth-library": "^8.5.2",
+    "http-server": "^14.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.19",
+    "passport": "^0.6.0",
+    "passport-google-plus-token": "^2.1.0",
+    "qs": "^6.11.0",
+    "string_decoder": "^1.3.0",
+    "url": "^0.11.0",
+    "zingmp3-api-full": "^1.0.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon createapi.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <meta name="google-signin-client_id" content="437807153200-433erabsenhjrgilos0go1s2cui4u4o0.apps.googleusercontent.com">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <!-- <script src="https://apis.google.com/js/platform.js" async defer></script> -->
+    <script>
+
+    //   function onSignIn(googleUser) {
+    //     var profile = googleUser.getBasicProfile();
+    //     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    //     console.log('Name: ' + profile.getName());
+    //     console.log('Image URL: ' + profile.getImageUrl());
+    //     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    // }
+    
+    
+      // function signOut() {
+      //   var auth2 = gapi.auth2.getAuthInstance();
+      //   auth2.signOut().then(function () {
+      //     console.log('User signed out.');
+      //   });
+      // }
+    
+      // gapi.load('auth2', function() {
+      //           gapi.auth2.init({
+      //               client_id: "437807153200-gqgvdfqk1olqso036bn00gua4j4151po.apps.googleusercontent.com",
+      //               scope: "profile email" // this isn't required
+      //           }).then(function(auth2) {
+      //               console.log( "signed in: " + auth2.isSignedIn.get() );  
+      //               // auth2.isSignedIn.listen(onSignIn);
+      //               // var button = document.querySelector('#signInButton');
+      //               // button.addEventListener('click', function() {
+      //               //   auth2.signIn();
+      //               // });
+      //           });
+      //       });
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+            {list product}
+        </tbody>
+      </table>
+      <form method="post" action="/create">
+        <button type="submit" class="btn btn-danger">Create</button>
+      </form> -->
+
+
+      <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <a href="#" onclick="signOut();">Sign out</a> -->
+    <div id="g_id_onload"
+      data-client_id="437807153200-gqgvdfqk1olqso036bn00gua4j4151po.apps.googleusercontent.com"
+      data-login_uri="http://localhost:3000"
+      data-auto_select="true"
+      data-callback="handleCredentialResponse">
+   </div>
+
+   <div class="g_id_signin"
+      data-type="standard"
+      data-size="large"
+      data-theme="outline"
+      data-text="sign_in_with"
+      data-shape="rectangular"
+      data-logo_alignment="left">
+   </div>
+
+      <script>
+        function handleCredentialResponse(response) {
+          const link = document.getElementById("linkid");
+          link.setAttribute('href', `http://localhost:3000/${response.credential}`);
+          link.click();
+          console.log(link.getAttribute('href'))
+          console.log(response.credential);
+        }
+
+        window.onload = function () {
+          google.accounts.id.initialize({
+            client_id: "437807153200-gqgvdfqk1olqso036bn00gua4j4151po.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+          });
+          google.accounts.id.renderButton(
+            document.getElementById("buttonDiv"),
+            { theme: "outline", size: "large" },"Đăng nhập"  // customization attributes
+          );
+          
+          google.accounts.id.prompt(); // also display the One Tap dialog
+        }
+
+      
+
+    </script>
+    <a href="/login" id="linkid">dinao</a>
+     <div id="buttonDiv"></div> 
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+</body>
+</html>
